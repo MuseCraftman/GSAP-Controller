@@ -65,10 +65,7 @@ here is the complete example:
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GSAP COntrollers Tool Example</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/yourusername/gsap-debugger@v1.0.0/gsap-debugger.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MuseCraftman/GSAP-Controller/gsapController.css">
     <style>
         .box {
             width: 100px;
@@ -79,6 +76,11 @@ here is the complete example:
 </head>
 <body>
     <div class="box"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/Draggable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/MuseCraftman/GSAP-Controller/gsapController.js"></script>
     <script>
         $(document).ready(function() {
             const myAnimation = gsap.to(".box", { duration: 2, x: 300 });
