@@ -21,7 +21,7 @@ To include this tool in your project, use the following CDN link:
 <script src="https://cdn.jsdelivr.net/gh/musecraftman/gsap-controller/gsap-controller.js"></script>
 ```
 
-for styling the controller include the following CDN in the `<head> <.head>`
+for styling the controller include the following CDN in the `<head> </head>`
 ```html
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/musecraftman/gsap-controller/gsap-controller.css">
 ```
