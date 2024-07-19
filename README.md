@@ -18,12 +18,12 @@ The GSAP Controller Tool is a custom utility to help developers debug their GSAP
 To include this tool in your project, use the following CDN link:
 ```html
 <!-- gsap controller -->
-<script src="https://cdn.jsdelivr.net/gh/musecraftman/gsap-controller/gsap-controller.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/MuseCraftman/GSAP-Controller/gsapController.js"></script>
 ```
 
 for styling the controller include the following CDN in the `<head> </head>`
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/musecraftman/gsap-controller/gsap-controller.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/MuseCraftman/GSAP-Controller/gsapController.css">
 ```
 
 Ensure you have GSAP and jQuery included in your project as well:
