@@ -47,7 +47,7 @@ const myAnimation = gsap.to(".box", { duration: 2, x: 300 });
 
 ### Step 2: Create Controllers for Your Animation
 
-Invoke the `createControllers` function with your GSAP animation:
+Invoke the `createController` function with your GSAP animation:
 ```javascript
 // pass the animation you want to control
 createController(myAnimation);
