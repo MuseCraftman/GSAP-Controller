@@ -82,7 +82,8 @@ function createController (gsapAnimation) {
         animation.invalidate().restart();
     }
     slider.on('input', function() {
-        animation.progress(slider.val());
+        animation.progress(slider.val()).pause();
+        updatePauseHtml();
     });
     speedSelect.on('change', function() {
         animation.timeScale(speedSelect.val());
@@ -123,20 +124,7 @@ function createController (gsapAnimation) {
     });
 
     // some front-end stuff
-    if (animation.paused()) {
-        toggleButton.html(`
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M16 29.3333C23.3637 29.3333 29.3333 23.3637 29.3333 16C29.3333 8.6362 23.3637 2.66667 16 2.66667C8.6362 2.66667 2.66667 8.6362 2.66667 16C2.66667 23.3637 8.6362 29.3333 16 29.3333Z" stroke="#0AED49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M12.6667 11.9538C12.6667 11.3174 12.6667 10.9992 12.7997 10.8216C12.9155 10.6668 13.0929 10.5699 13.2858 10.5561C13.5072 10.5403 13.7748 10.7124 14.3101 11.0565L20.6043 15.1028C21.0688 15.4013 21.3011 15.5507 21.3812 15.7405C21.4513 15.9064 21.4513 16.0936 21.3812 16.2595C21.3011 16.4493 21.0688 16.5987 20.6043 16.8972L14.3101 20.9435C13.7748 21.2876 13.5072 21.4597 13.2858 21.4439C13.0929 21.4301 12.9155 21.3332 12.7997 21.1784C12.6667 21.0008 12.6667 20.6827 12.6667 20.0463V11.9538Z" fill="#0AED49" stroke="#0AED49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        `);
-    } else {
-        toggleButton.html(`
-            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.6667 20V12M19.3333 20V12M29.3333 16C29.3333 23.3637 23.3637 29.3333 16 29.3333C8.6362 29.3333 2.66667 23.3637 2.66667 16C2.66667 8.6362 8.6362 2.66667 16 2.66667C23.3637 2.66667 29.3333 8.6362 29.3333 16Z" stroke="#0AED49" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        `);
-    }
+    updatePauseHtml();
     if (animation.repeat() === 0) {
         gsap.to(loopToggle, {opacity: 0.6, duration: 0, ease: "none"})
     } else {
@@ -158,6 +146,23 @@ function createController (gsapAnimation) {
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M16 29.3333C23.3637 29.3333 29.3333 23.3637 29.3333 16C29.3333 8.6362 23.3637 2.66667 16 2.66667C8.6362 2.66667 2.66667 8.6362 2.66667 16C2.66667 23.3637 8.6362 29.3333 16 29.3333Z" stroke="#0AED49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     <path d="M12.6667 11.9538C12.6667 11.3174 12.6667 10.9992 12.7997 10.8216C12.9155 10.6668 13.0929 10.5699 13.2858 10.5561C13.5072 10.5403 13.7748 10.7124 14.3101 11.0565L20.6043 15.1028C21.0688 15.4013 21.3011 15.5507 21.3812 15.7405C21.4513 15.9064 21.4513 16.0936 21.3812 16.2595C21.3011 16.4493 21.0688 16.5987 20.6043 16.8972L14.3101 20.9435C13.7748 21.2876 13.5072 21.4597 13.2858 21.4439C13.0929 21.4301 12.9155 21.3332 12.7997 21.1784C12.6667 21.0008 12.6667 20.6827 12.6667 20.0463V11.9538Z" fill="#0AED49" stroke="#0AED49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            `);
+        }
+    }
+
+    function updatePauseHtml() {
+        if (animation.paused()) {
+            toggleButton.html(`
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 29.3333C23.3637 29.3333 29.3333 23.3637 29.3333 16C29.3333 8.6362 23.3637 2.66667 16 2.66667C8.6362 2.66667 2.66667 8.6362 2.66667 16C2.66667 23.3637 8.6362 29.3333 16 29.3333Z" stroke="#0AED49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M12.6667 11.9538C12.6667 11.3174 12.6667 10.9992 12.7997 10.8216C12.9155 10.6668 13.0929 10.5699 13.2858 10.5561C13.5072 10.5403 13.7748 10.7124 14.3101 11.0565L20.6043 15.1028C21.0688 15.4013 21.3011 15.5507 21.3812 15.7405C21.4513 15.9064 21.4513 16.0936 21.3812 16.2595C21.3011 16.4493 21.0688 16.5987 20.6043 16.8972L14.3101 20.9435C13.7748 21.2876 13.5072 21.4597 13.2858 21.4439C13.0929 21.4301 12.9155 21.3332 12.7997 21.1784C12.6667 21.0008 12.6667 20.6827 12.6667 20.0463V11.9538Z" fill="#0AED49" stroke="#0AED49" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            `);
+        } else {
+            toggleButton.html(`
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.6667 20V12M19.3333 20V12M29.3333 16C29.3333 23.3637 23.3637 29.3333 16 29.3333C8.6362 29.3333 2.66667 23.3637 2.66667 16C2.66667 8.6362 8.6362 2.66667 16 2.66667C23.3637 2.66667 29.3333 8.6362 29.3333 16Z" stroke="#0AED49" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             `);
         }

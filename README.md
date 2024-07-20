@@ -4,6 +4,7 @@
 
 The GSAP Controller Tool is a custom utility to help developers debug their GSAP animations, providing an affordable alternative to GSAP DevTools. This tool provides various controls such as play, pause, restart, loop, and speed adjustments to aid in debugging animations efficiently.
 
+![gif displaying GSAP Controller UI](./assets/screenshot.gif)
 ## Features
 
 - **Play/Pause**: Start or pause the animation.
